@@ -1,2 +1,2 @@
-# Assignment
-![Assignment to-do](assignment-info.png)
+# Assignment 01
+![Assignment to-do](assignment-01-info.png)
