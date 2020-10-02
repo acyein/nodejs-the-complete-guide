@@ -1,0 +1,13 @@
+extends layouts/main-layout.pug
+
+block content
+    main
+        .container
+            .card.text-center.my-5.py-4
+                form(action="/admin/add-product", method="POST")
+                    .form-group
+                        h1 Add Product
+                    .form-group.row
+                        label(for="title").col-12 Title
+                        input(type="text", name="title").form-control.col-3.m-auto
+                    button(type="submit").btn.btn-success Add Product
