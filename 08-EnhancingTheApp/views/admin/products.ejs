@@ -1,0 +1,32 @@
+<%- include('../partials/head.ejs') %> 
+    <main>
+        <% if (prods.length > 0) {%> 
+            <div class="container">
+                <% for (let product of prods) { %> 
+                    <article class="card my-5 py-4">
+                        <div class="card-body">
+                            <h1 class="card-title text-center"><%= product.title %></h1>
+                            <img src="<%= product.imageUrl %>" alt="<%= product.title %>">
+                            <h2>$<%= product.price %></h2>
+                            <p class="card-text"><%= product.description %></p>
+                            <a href="/admin/edit-product" role="button" class="btn btn-success">Edit</a>
+                            <form action="/admin/delete-product" method="POST" class="d-inline">
+                                <button class="btn btn-danger">Delete</button>
+                            </form>
+                        </div>
+                    </article>
+                <% } %> 
+            </div>
+        <% } else { %> 
+            <div class="container">
+                <div class="article card my-5 py-4">
+                    <div class="card-body text-center">
+                        <h1 class="card-title">No Products</h1>
+                        <p class="card-text text-muted">Add a new product now!</p> 
+                        <a href="/admin/add-product" role="button" class="btn btn-success">Add Product</a>
+                    </div>
+                </div>
+            </div>
+        <% } %> 
+    </main>
+<%- include('../partials/end.ejs') %> 
