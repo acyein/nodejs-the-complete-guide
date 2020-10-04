@@ -1,0 +1,16 @@
+{
+  "name": "assignment-4",
+  "version": "1.0.0",
+  "description": "Practise using templating engine, ejs",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon app.js"
+  },
+  "author": "Chian Yein",
+  "license": "ISC",
+  "dependencies": {
+    "ejs": "^3.1.5",
+    "express": "^4.17.1"
+  }
+}
