@@ -1,0 +1,30 @@
+<%- include('../partials/head.ejs') %> 
+    <main>
+        <% if (products.length > 0) { %>
+            <ul>
+                <% products.forEach(p => { %>
+                    <li>
+                        <p><%= p.productData.title %> (<%= p.qty %>)</p>
+                        <form action="/cart-delete-item" method="POST">
+                            <input type="hidden" name="productId" id="productId" value="<%= p.productData.id %>">
+                            <button type="submit" class="btn btn-danger">Delete</button>
+                        </form>
+                    </li>
+                <% }); %>
+            </ul>
+
+            <% } else { %>
+                <div class="container">
+                    <div class="article card my-5 py-4">
+                        <div class="card-body text-center">
+                            <h1 class="card-title">No Products in Cart!</h1>
+                            <p class="card-text text-muted">Shop for products now!</p> 
+                            <a href="/" role="button" class="btn btn-success">Shop</a>
+                        </div>
+                    </div>
+                </div>
+            <% } %>
+        
+    </main>
+
+<%- include('../partials/end.ejs') %> 

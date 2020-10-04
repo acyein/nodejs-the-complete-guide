@@ -1,0 +1,35 @@
+<%- include('../partials/head.ejs') %> 
+    <main>
+        <% if (prods.length > 0) {%> 
+            <div class="container">
+                <div class="row">
+                    <% for (let product of prods) { %> 
+                        <div class="col-lg-4 col-md-6">
+                            <article class="card shadow text-center my-5">
+                                <div class="card-body text-center">
+                                    <h1 class="card-title h3"><%= product.title %></h1>
+                                </div>
+                                <img class="product-preview card-img-top" src="<%= product.imageUrl %>" alt="<%= product.title %>">
+                                <div class="card-body">
+                                    <h2 class="h5">$<%= product.price %></h2>
+                                    <p class="card-text"><%= product.description %></p>
+                                    <%- include('../partials/add-to-cart.ejs', { product: product }) %> 
+                                </div>
+                            </article>
+                        </div>
+                    <% } %> 
+                </div>
+            </div>
+        <% } else { %> 
+            <div class="container">
+                <div class="article card my-5 py-4">
+                    <div class="card-body text-center">
+                        <h1 class="card-title">Coming Soon!</h1>
+                        <p class="card-text text-muted">Hang on, friends</p> 
+                        <img class="coming-soon" src="https://media.giphy.com/media/LW59O4ZL52C5ZwVyKd/giphy.gif" alt="Egg skating">
+                    </div>
+                </div>
+            </div>
+        <% } %> 
+    </main>
+<%- include('../partials/end.ejs') %> 
