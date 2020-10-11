@@ -1,2 +1,33 @@
 <%- include('../partials/head.ejs') %> 
-<%- include('../partials/end.ejs') %> 
+    <main>
+        <% if (orders.length > 0) { %>
+            <div class="container">
+                <ul>
+                    <% orders.forEach(order => { %>
+                        <li>
+                            <h1 class="h3"># <%= order.id %></h1>
+                            <ul>
+                                <% order.products.forEach(product => { %>
+                                    <li><%= product.title %> (<%= product.orderItem.quantity %>)</li>
+                                <% }); %>
+                            </ul>
+                        </li>
+                    <% }); %>
+                </ul>
+                <form action="/create-order" method="POST" class="text-center">
+                    <button type="submit" class="btn btn-success">Order Now!</button>
+                </form>
+            </div>
+
+        <% } else { %>
+            <div class="container">
+                <div class="article card my-5 py-4">
+                    <div class="card-body text-center">
+                        <h1 class="card-title">No Orders!</h1>
+                    </div>
+                </div>
+            </div>
+        <% } %>
+    </main>
+
+<%- include('../partials/end.ejs') %>
