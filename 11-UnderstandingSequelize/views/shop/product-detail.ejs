@@ -1,0 +1,14 @@
+<%- include('../partials/head.ejs') %>
+<main>
+    <div class="container">
+        <div class="text-center my-5">
+            <h1 class="h3"><%= product.title %></h1>
+            <hr>
+            <img class="product-image mb-3" src="<%= product.imageUrl %>" alt="<%= product.title %>">
+            <h2 class="h5">$<%= product.price %></h2>
+            <p><%= product.description %></p>
+            <%- include('../partials/add-to-cart.ejs') %> 
+        </div>
+    </div>
+</main>
+<%- include('../partials/end.ejs') %>

@@ -1,0 +1,39 @@
+<%- include('../partials/head.ejs') %> 
+    <main>
+        <div class="container">
+            <div class="row card my-5 py-4">
+                <form action="/admin/<% if (editing) { %>edit-product<% } else { %>add-product<% } %>" 
+                method="POST" class="col-10 m-auto">
+                    <div class="form-group text-center">
+                        <h1>Edit Product</h1>
+                    </div>
+                    <div class="form-group">
+                        <label for="title">Title</label>
+                    <input type="text" name="title" id="title" value="<% if (editing) { %><%= product.title %><% } %>" class="form-control m-auto">
+                    </div>
+                    <div class="form-group">
+                        <label for="imageUrl">Image URL</label>
+                        <input type="text" name="imageUrl" id="imageUrl" value="<% if (editing) { %><%= product.imageUrl %><% } %>" class="form-control m-auto">
+                    </div>
+                    <div class="form-group">
+                        <label for="price">Price</label>
+                        <input type="number" name="price" id="price" step=".01" value="<% if (editing) { %><%= product.price %><% } %>" class="form-control m-auto">
+                    </div>
+                    <div class="form-group">
+                        <label for="description">Description</label>
+                        <textarea name="description" id="description" cols="30" s="5" class="form-control m-auto"><% if (editing) { %><%= product.description %><% } %></textarea>
+                    </div>
+
+                    <% if (editing) { %>
+                        <input type="hidden" name="productId" id="productId" value="<%= product.id %>">
+                    <% } %>
+                    <div class="form-group text-center">
+                        <button type="submit" class="btn btn-success">
+                            <% if (editing) { %>Update Product<% } else { %>Add Product<% } %>
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </main>
+<%- include('../partials/end.ejs') %> 

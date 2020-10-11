@@ -1,0 +1,17 @@
+body, .card {
+    background-color: #f5f5f5;
+}
+
+.product-preview {
+    height: 35vh;
+    object-fit: cover;
+}
+
+.product-image {
+    height: 50vh;
+    object-fit: cover;
+}
+
+.coming-soon {
+    height: 15rem;
+}
